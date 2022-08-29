@@ -1,3 +1,5 @@
+
+/**************************************Estilos Generales********************************/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -24,6 +26,8 @@
   .logo {
     width: 100px;
   }
+
+  /**************************************NavBar General*********************************/
   .navbar-left ul,
   .navbar-right ul {
     list-style: none;
@@ -77,7 +81,7 @@
   }
 
 
-  /*****************************************Clase 7*************************************/
+  /**********************************Clase 7 (Desktop Menu)*****************************/
   
   .desktop-menu {
       position: absolute;
@@ -120,14 +124,62 @@
     display: inline-block;
   }
   
+
+  /***********************************Clase 8 (Mobile Menu)*****************************/
+
+  .mobile-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 0 4px rgba(0,0,0,0.16);
+    padding: 24px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
+
   @media (max-width: 640px) {
     .menu {
       display: block;
+      cursor: pointer;
     }
     .navbar-left ul {
       display: none;
     }
     .navbar-email {
       display: none;
+    }
+    .desktop-menu {
+        display: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .mobile-menu {
+        display: none;
     }
   }
