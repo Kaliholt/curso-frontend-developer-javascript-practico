@@ -363,9 +363,11 @@
       height: 140px;
     }
     
-    .container-shopping-cart,
-    .product-detail {
+    .container-shopping-cart {
       width: 100%;
+    }
+    .product-detail {
+      width: calc(100% - 30px);
     }
     .menu {
       display: block;
@@ -381,9 +383,6 @@
         display: none;
     }
   }
-
-
-  /*************************** Clase 12 (Detalle de cada Producto) *********************/
 
   
 
