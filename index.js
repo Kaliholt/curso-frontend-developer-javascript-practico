@@ -5,7 +5,7 @@ const navMenuIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const navShoppingIcon = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const containerShoppingCart = document.querySelector('.container-shopping-cart');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -14,19 +14,19 @@ navMenuIcon.addEventListener('click', toggleMobileMenu);
 navShoppingIcon.addEventListener('click', toggleProductDetail);
 
 function toggleDesktopMenu() {
-    productDetail.classList.add('inactive');
+    containerShoppingCart.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    productDetail.classList.add('inactive')
+    containerShoppingCart.classList.add('inactive')
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleProductDetail() {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive')
-    productDetail.classList.toggle('inactive');
+    containerShoppingCart.classList.toggle('inactive');
 }
 
 const productList = [];
