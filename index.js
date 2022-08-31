@@ -95,10 +95,20 @@ function toggleContainerShoppingCart() {
  ** Description:  Función encargada de aperturar la ventana que muestra los detalles de un producto
  * @param null 
  */
-function showProductDetail() {
+function showProductDetail(event) {
     closeDropdownsWindows(productDetail)
     productDetail.classList.remove('inactive');
     darkeningContainer.classList.add('darken');
+
+    
+    const image = event.currentTarget.getAttribute('src');
+    const currentProductInfo = event.currentTarget.parentNode
+    const price = Number(currentProductInfo.children[1].children[0].children[0].innerText.slice(1));
+    const name = currentProductInfo.children[1].children[0].children[1].innerText;    
+    
+    productDetail.children[1].setAttribute('src', image);
+    productDetail.children[2].children[0].innerText = '$' + price;
+    productDetail.children[2].children[1].innerText = name;
 }
 
 /**
@@ -167,6 +177,7 @@ function renderProducts(array) {
     }
 }
 
+// *Llamada a función para crear productos
 renderProducts(productList);
 renderProducts(productList);
 renderProducts(productList);
@@ -200,6 +211,8 @@ function addProductShoppingCart(event) {
     const shoppingCartIconClose = document.createElement('img');
     shoppingCartIconClose.src = './icons/icon_close.png';
     shoppingCartIconClose.alt = 'close';
+    shoppingCartIconClose.classList.add('shopping-cart__icon-close');
+    shoppingCartIconClose.addEventListener('click', removeProductShoppingCart);
 
     
     shoppingCartFigure.appendChild(shoppingCartFigureImg);
@@ -209,13 +222,33 @@ function addProductShoppingCart(event) {
     updateTotalOrderAmount(i.price);
 }
 
+// *Variables que se usarán en la siguiente función
 let total = 0;
+let i = 0;
 /**
  ** Description: Actualiza el precio total de la orden del carrito de compras cada vez que se añada un nuevo producto 
  * @param {*} price Es el precio del producto que se añadirá al carrito 
  */
 function updateTotalOrderAmount(price) {
+    if(price > 0) {
+        navShoppingIcon.children[1].innerText = ++i;
+    } else {
+        navShoppingIcon.children[1].innerText = --i;
+    }
+
     total = total + price;
 
-    totalOrderAmount.innerText = '$' + total;
+    totalOrderAmount.children[1].innerText = '$' + total;
+}
+
+/**
+ ** Description: Elimina el producto seleccionado del carrito de compras 
+ * @param event Parámetro por defecto que establece el método .addEventListener
+ */
+function removeProductShoppingCart(event) {
+    const shoppingCart = event.currentTarget.parentNode;
+    const price = Number(shoppingCart.children[2].innerText.slice(1));
+    
+    shoppingCart.replaceWith('');
+    updateTotalOrderAmount(-price);
 }

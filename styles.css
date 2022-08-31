@@ -240,6 +240,9 @@
   font-size: var(--md);
   font-weight: bold;
 }
+.shopping-cart__icon-close {
+  cursor: pointer;
+}
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
