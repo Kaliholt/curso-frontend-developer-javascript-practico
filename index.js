@@ -20,11 +20,19 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('.product-detail');
 const productDetailIconClose = document.querySelector('.product-detail-close');
 
+// *productDetailButtonAdd se encarga de recibir el evento de agregar producto al carrito de compras y myOrderContent es el carrito de compras
+const productDetailButtonAdd = document.querySelector('.product-detail--primary-button');
+const myOrderContent = document.querySelector('.my-order-content');
+
+// *totalPurchase Amount representa el monto total de los productos añadidos al carrito
+const totalOrderAmount = document.querySelector('.order');
+
 // *Eventos de Click de algunas variables claves
 navEmail.addEventListener('click', toggleDesktopMenu);
 navMenuIcon.addEventListener('click', toggleMobileMenu);
 navShoppingIcon.addEventListener('click', toggleContainerShoppingCart);
 productDetailIconClose.addEventListener('click', closeProductDetail);
+productDetailButtonAdd.addEventListener('click', addProductShoppingCart);
 
 /** 
  ** Description: Cierra las ventanas desplegables que no deberian estar abiertas
@@ -151,7 +159,7 @@ function renderProducts(array) {
         const productInfoFigureImage = document.createElement('img');
         productInfoFigureImage.setAttribute('src', './icons/bt_add_to_cart.svg');
     
-        cardsContainer.append(productCard);
+        cardsContainer.appendChild(productCard);
         productCard.append(productImage, productInfo);
         productInfo.append(productInfoDiv, productInfoFigure);
         productInfoDiv.append(productInfoPrice, productInfoName);
@@ -162,3 +170,52 @@ function renderProducts(array) {
 renderProducts(productList);
 renderProducts(productList);
 renderProducts(productList);
+
+/**
+ ** Description: Agrega el producto seleccioando al carrito de compras
+ * @param event Parámetro por defecto que establece el método .addEventListener  
+ */
+function addProductShoppingCart(event) {
+    const currentProduct = event.currentTarget.parentNode.children[1].innerText;
+
+    let i = {};
+    for(p of productList) {
+        if(currentProduct == p.name) {
+            i = p;
+        }
+    }
+    const shoppingCart = document.createElement('div');
+    shoppingCart.classList.add('shopping-cart');
+    
+    const shoppingCartFigure = document.createElement('figure');
+    const shoppingCartFigureImg = document.createElement('img');
+    shoppingCartFigureImg.setAttribute('src', i.image);
+    
+    const shoppingCartName = document.createElement('p');
+    shoppingCartName.innerText = i.name;
+    
+    const shoppingCartPrice = document.createElement('p');
+    shoppingCartPrice.innerText = '$' + i.price;
+
+    const shoppingCartIconClose = document.createElement('img');
+    shoppingCartIconClose.src = './icons/icon_close.png';
+    shoppingCartIconClose.alt = 'close';
+
+    
+    shoppingCartFigure.appendChild(shoppingCartFigureImg);
+    shoppingCart.append(shoppingCartFigure, shoppingCartName, shoppingCartPrice, shoppingCartIconClose);
+    myOrderContent.insertBefore(shoppingCart, totalOrderAmount);
+
+    updateTotalOrderAmount(i.price);
+}
+
+let total = 0;
+/**
+ ** Description: Actualiza el precio total de la orden del carrito de compras cada vez que se añada un nuevo producto 
+ * @param {*} price Es el precio del producto que se añadirá al carrito 
+ */
+function updateTotalOrderAmount(price) {
+    total = total + price;
+
+    totalOrderAmount.innerText = '$' + total;
+}
