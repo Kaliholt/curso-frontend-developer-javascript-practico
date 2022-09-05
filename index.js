@@ -1,7 +1,7 @@
 // *Contenedor para Oscurecer Pantalla 
 const darkeningContainer = document.querySelector('#darkening-container');
 
-// *navEmail existe solo en la versión desktop, es la variable a cargo para recibir el evento del mouse y desktopMenu es la variable encargada de desplegar el menu o ventana que muestran las opciones de 'My order', 'My account' y 'Sign out' 
+// *navEmail existe solo en la versión desktop, es la variable a cargo para recibir el evento del mouse y desktopMenu es el menu o ventana desplegable que muestran las opciones de 'My order', 'My account' y 'Sign out' 
 const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
@@ -20,7 +20,7 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('.product-detail');
 const productDetailIconClose = document.querySelector('.product-detail-close');
 
-// *productDetailButtonAdd se encarga de recibir el evento de agregar producto al carrito de compras y myOrderContent es el carrito de compras
+// *productDetailButtonAdd se encarga de recibir el evento de agregar producto al carrito de compras y myOrderContent es el contenido de resumen de los productos agregados al carrito de compras
 const productDetailButtonAdd = document.querySelector('.product-detail--primary-button');
 const myOrderContent = document.querySelector('.my-order-content');
 
@@ -251,4 +251,18 @@ function removeProductShoppingCart(event) {
     
     shoppingCart.replaceWith('');
     updateTotalOrderAmount(-price);
+}
+
+/******************************************Login****************************************/
+
+const navLogin = document.querySelector('.navbar-login');
+const scriptLogin = document.querySelector('.script-login');
+
+navLogin.addEventListener('click', addScriptLogin);
+
+function addScriptLogin() {
+    scriptLogin.setAttribute('src', './login/login.js');
+    console.log('desde index.js');
+    // window.history.pushState(null, '', './login/login.html');
+    console.log('aqui en index.js');
 }

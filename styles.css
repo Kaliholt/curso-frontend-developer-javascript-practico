@@ -54,16 +54,14 @@
   .navbar-left ul {
     margin-left: 12px;
   }
-  .navbar-left ul li a,
-  .navbar-right ul li a {
+  .navbar-left ul li a {
     text-decoration: none;
     color: var(--very-light-pink);
     border: 1px solid var(--white);
     padding: 8px;
     border-radius: 8px;
   }
-  .navbar-left ul li a:hover,
-  .navbar-right ul li a:hover {
+  .navbar-left ul li a:hover {
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
   }
@@ -90,6 +88,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .navbar-login {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .navbar-login a {
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--hospital-green);
+  }
+  .navbar-login a:hover {
+    background-color: #99c09e;
   }
 
 

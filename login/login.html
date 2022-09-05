@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Log in</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="login">
+    <div class="form-container login__form-container">
+      <img src="../logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <form action="../index.html" class="form login__form">
+        <label for="loginEmail" class="label">Email address</label>
+        <input type="text" id="loginEmail" placeholder="platzi@example.cm" class="input input-email login__input-email">
+        
+        <label for="loginPassword" class="label">Password</label>
+        <input type="password" id="loginPassword" placeholder="*********" class="input input-password login__input-password">
+        <p class="error-message login__error-message"></p>
+        <input type="submit" value="Log in" class="primary-button login-button">
+        <a href="">Forgot my password</a>
+      </form>
+
+      <button class="secondary-button signup-button">Sign up</button>
+    </div>
+  </div>
+  <div class="create-account inactive">
+    <div class="form-container">
+      <h1 class="title">My account</h1>
+
+      <form action="/" class="form">
+        <div>
+          <label for="name" class="label create-account__label">Name</label>
+          <input type="text" id="name" placeholder="Teff" class="input input-name create-account__input-name">
+
+          <label for="email" class="label create-account__label">Email</label>
+          <input type="text" id="email" placeholder="platzi@example.com" class="input input-email create-account__input-email">
+
+          <label for="password" class="label create-account__label">Password</label>
+          <input type="password" id="password" placeholder="*********" class="input input-password create-account__input-password">
+        </div>
+
+        <input type="submit" value="Create" class="primary-button login-button">
+      </form>
+    </div>
+  </div>
+  <script src="./login.js"></script>
+</body>
+</html>
