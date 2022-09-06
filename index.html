@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="darkening-container" class=""></div>
-  <nav>
+  <nav class="nav-container">
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
 
     <div class="navbar-left">
@@ -42,8 +42,8 @@
 
     <div class="navbar-right">
       <ul>
-        <li class="navbar-email">platzi@example.com</li>
-        <li class="navbar-login"><a href="./login/login.html">log in</a></li>
+        <li class="navbar-email"></li>
+        <li class="navbar-login"><a href="#">log in</a></li>
         <li class="navbar-shopping-cart">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
           <div>0</div>
@@ -190,7 +190,44 @@
       </div> -->
     </div>
   </section>   
+  <div class="login inactive">
+    <div class="form-container login__form-container">
+      <img src="../logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <form action="../index.html" class="form login__form">
+        <label for="loginEmail" class="label">Email address</label>
+        <input type="text" id="loginEmail" placeholder="platzi@example.cm" class="input input-email login__input-email">
+        
+        <label for="loginPassword" class="label">Password</label>
+        <input type="password" id="loginPassword" placeholder="*********" class="input input-password login__input-password">
+        <p class="error-message login__error-message"></p>
+        <input type="submit" value="Log in" class="primary-button login-button">
+        <div class="login__forgot-password-option">Forgot my password</div>
+      </form>
+
+      <button class="secondary-button signup-button">Sign up</button>
+    </div>
+  </div>
+  <div class="create-account inactive">
+    <div class="form-container">
+      <h1 class="title">My account</h1>
+
+      <form action="../index.html" class="form">
+        <div>
+          <label for="signupName" class="label create-account__label">Name</label>
+          <input type="text" id="signupName" placeholder="Teff" class="input input-name create-account__input-name">
+
+          <label for="signupEmail" class="label create-account__label">Email</label>
+          <input type="text" id="signupEmail" placeholder="platzi@example.com" class="input input-email create-account__input-email">
+
+          <label for="signupPassword" class="label create-account__label">Password</label>
+          <input type="password" id="signupPassword" placeholder="*********" class="input input-password create-account__input-password">
+        </div>
+
+        <input type="submit" value="Create" class="primary-button create-button">
+      </form>
+    </div>
+  </div>
   <script src="./index.js"></script>
-  <script class="script-login"></script>
 </body>
 </html>

@@ -75,12 +75,15 @@ function showSignUpWindow() {
     containerToCreateAccount.classList.remove('inactive');
 }
 
+/**
+ ** Description: Muestra la ventana de email enviado cuando un usuario indica que ha olvidado su contraseña
+ */
 function showEmailSentWindow() {
     forgottenPassword.classList.remove('inactive');
 }
 
 /**
- * 
+ ** Description: Registra la cuenta del nuevo usuario
  * @param {*} event 
  */
 function createAccount(event) {
@@ -102,6 +105,11 @@ function createAccount(event) {
     }
 }
 
+/**
+ ** Description: Verifica si un email es válido (esto implica que no exista actualmente, que tenga '@' y '.com')
+ * @param {*} email 
+ * @returns boolean
+ */
 function isEmailValid(email) {
     const isExist = emails.some(e => email === e.email);
     const hasSpaces = email.split(' ').length > 1;
